@@ -19,6 +19,14 @@ class AnnotatedSl4jServiceSpec extends Specification {
     def cleanup() {
     }
 
+    void "test service prints to console"() {
+        when:
+        annotatedSl4jService.logSomething()
+
+        then:
+        1 == 1
+    }
+
     void "test mock with mockito on @Sl4j logger"() {
         when:
         Appender mockedAppender = Mockito.mock(Appender.class)
