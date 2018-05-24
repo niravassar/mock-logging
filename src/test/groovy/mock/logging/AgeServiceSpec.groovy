@@ -47,34 +47,6 @@ class AgeServiceSpec extends Specification implements ServiceUnitTest<AgeService
         loggingEvents[1].getLevel() == Level.INFO
     }
 
-    void "verify logging with spock"() {
-        when:
-        mockLog(service)
-
-        service.offerAgeAdvice(22)
-
-        then:
-        //1 * mockAppender.doAppend("Asfdasdf")
-        1 == 1
-    }
-
-    private def mockLog(def service) {
-        def impl = [
-                debug:{String message ->
-                    println "debug: ${message}"
-                },
-                info:{String message ->
-                    println "info:  ${message}"
-                },
-                warn:{String message ->
-                    println "warn:  ${message}"
-                },
-                error:{String message ->
-                    println "error: ${message}"
-                }
-        ]
-
-        def logInstance = impl as org.apache.commons.logging.Log
-        service.log = logInstance
+    void "verify logging with sl4j-test"() {
     }
 }
