@@ -34,7 +34,7 @@ class AnnotatedSl4jServiceSpec extends Specification {
         then:
         argumentCaptor.getAllValues().size() == 1
         List<LoggingEvent> loggingEvents = argumentCaptor.getAllValues()
-        loggingEvents[0].getMessage() == "Live life to the fullest"
+        loggingEvents[0].getMessage() == "Carpe Diem"
         loggingEvents[0].getLevel() == Level.INFO
     }
 }

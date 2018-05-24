@@ -10,6 +10,6 @@ class AnnotatedSl4jService {
 
     void logSomething() {
         println "*********** log in the class ******" + log.dump()
-        log.info("Live life to the fullest")
+        log.info("Carpe Diem")
     }
 }

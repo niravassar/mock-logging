@@ -46,7 +46,4 @@ class AgeServiceSpec extends Specification implements ServiceUnitTest<AgeService
         loggingEvents[1].getMessage() == "Live life to the fullest"
         loggingEvents[1].getLevel() == Level.INFO
     }
-
-    void "verify logging with sl4j-test"() {
-    }
 }
