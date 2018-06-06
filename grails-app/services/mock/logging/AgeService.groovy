@@ -2,7 +2,7 @@ package mock.logging
 
 class AgeService {
 
-    def offerAgeAdvice(int age) {
+    void offerAgeAdvice(int age) {
         println "****** log in the service *******" + log.dump()
 
         if (age < 0) {

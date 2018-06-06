@@ -28,14 +28,15 @@ class AgeServiceSpec extends Specification implements ServiceUnitTest<AgeService
 
     void "verify logging with mockito appender"() {
         when: "we attach a mocked appender to the logger"
-        Appender mockedAppender = Mockito.mock(Appender.class)
+        Appender mockedAppender = Mockito.mock(Appender)
         Logger logger = LoggerFactory.getLogger("mock.logging.AgeService")
         logger.addAppender(mockedAppender)
 
         service.offerAgeAdvice(22)
 
-        ArgumentCaptor<Appender> argumentCaptor = ArgumentCaptor.forClass(Appender.class)
-        Mockito.verify(mockedAppender, Mockito.times(2)).doAppend(argumentCaptor.capture())
+        ArgumentCaptor<Appender> argumentCaptor = ArgumentCaptor.forClass(Appender)
+        Mockito.verify(mockedAppender,
+                Mockito.times(2)).doAppend(argumentCaptor.capture())
         logger.detachAppender(mockedAppender)
 
         then: "we capture the arguments and verify log statements occurred"

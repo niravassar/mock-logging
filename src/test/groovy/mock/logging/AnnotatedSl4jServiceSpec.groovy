@@ -29,13 +29,13 @@ class AnnotatedSl4jServiceSpec extends Specification {
 
     void "test mock with mockito on @Sl4j logger"() {
         when:
-        Appender mockedAppender = Mockito.mock(Appender.class)
+        Appender mockedAppender = Mockito.mock(Appender)
         Logger logger = LoggerFactory.getLogger("mock.logging.AnnotatedSl4jService")
         logger.addAppender(mockedAppender)
 
         annotatedSl4jService.logSomething()
 
-        ArgumentCaptor<Appender> argumentCaptor = ArgumentCaptor.forClass(Appender.class)
+        ArgumentCaptor<Appender> argumentCaptor = ArgumentCaptor.forClass(Appender)
         Mockito.verify(mockedAppender, Mockito.times(1)).doAppend(argumentCaptor.capture())
         logger.detachAppender(mockedAppender)
 
